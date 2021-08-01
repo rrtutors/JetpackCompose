@@ -1,4 +1,4 @@
-package com.example.myapplication.widget
+package com.example.jetpack.widget
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.jetpack
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.ui.theme.MyApplicationTheme
-import com.example.myapplication.widget.AlertDialogDemo
+import com.example.jetpack.ui.theme.JetPackTheme
+import com.example.jetpack.widget.AlertDialogDemo
 
 class MainActivity : ComponentActivity() {
 
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MyApplicationTheme {
+    JetPackTheme {
         AlertDialogDemo()
     }
 }

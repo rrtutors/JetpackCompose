@@ -9,6 +9,7 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -17,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
@@ -50,17 +52,11 @@ fun DatePickerDemo(context: Context) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         OutlinedTextField(
             value = date.value,
             onValueChange = {
-            },modifier=Modifier.pointerInput(Unit) {
-                detectTapGestures(
-                    onPress = { /* Called when the gesture starts */ },
-                    onDoubleTap = { /* Called on Double Tap */ },
-                    onLongPress = { /* Called on Long Press */ },
-                    onTap = { datePickerDialog.show()}
-                )
+            },modifier=Modifier.clickable {
+                datePickerDialog.show()
             }
             ,
             label = {

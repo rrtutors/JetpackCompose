@@ -66,5 +66,3 @@ fun getFormattedDate(date: Date?, format: String): String {
     }
     return ""
 }
-
-//https://stackoverflow.com/questions/60417233/jetpack-compose-date-time-picker

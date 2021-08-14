@@ -29,9 +29,7 @@ import kotlin.random.Random
 @Composable
 fun CustomerList(customerViewModel: CustomerViewmodel) {
 
-
     val customerList = customerViewModel.fetchAllCustomer().observeAsState(arrayListOf())
-
 
     Scaffold(modifier = Modifier.fillMaxSize(),
         floatingActionButton = {

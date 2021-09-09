@@ -65,15 +65,6 @@ fun TopAppBarLayout(
     }, backgroundColor = Color.Blue, contentColor = Color.White)
 }
 
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    JetPackTheme {
-        NavigationDrawer()
-    }
-}
-
 private val screens = listOf(
     DrawerScreens.Home,
     DrawerScreens.Settings,

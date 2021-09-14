@@ -6,25 +6,33 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
-private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+val light = lightColors(
+    primary = PrimaryColor,
+    primaryVariant = PrimaryVariantColor,
+    secondary = SecondaryColorForLight,
+    secondaryVariant = SecondaryColorForLight,
+    background = BackgroundColorForLight,
+    surface = SurfaceColorForLight,
+    error = ErrorColor,
+    onPrimary = WhiteColor,
+    onSecondary = WhiteColor,
+    onBackground = BlackColor,
+    onSurface = BlackColor,
+    onError = ErrorColor
 )
-
-private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+val dark = darkColors(
+    background = BackgroundColorForDark,
+    surface = SurfaceColorForDark,
+    primary = PrimaryColor,
+    secondary = SecondaryColorForDark,
+    onBackground = OnBackgroundColor,
+    onSurface = WhiteColor,
+    onPrimary = WhiteColor,
+    onSecondary = WhiteColor,
+    primaryVariant = PrimaryVariantColor,
+    secondaryVariant = SecondaryColorForDark,
+    onError = ErrorColor,
+    error = ErrorColor,
 )
 
 @Composable
@@ -32,14 +40,8 @@ fun JetPackTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
-
     MaterialTheme(
-        colors = colors,
+        colors = if (darkTheme) dark else light,
         typography = Typography,
         shapes = Shapes,
         content = content

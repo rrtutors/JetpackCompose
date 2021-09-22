@@ -15,3 +15,8 @@ val PrimaryVariantColor = Color(0xFF6f0c97)
 val OnBackgroundColor = Color(0xFF7b7b7b)
 val ErrorColor=Color(0xFFed2b2b)
 
+val simmerEffectColors = listOf(
+    Color.LightGray.copy(0.5f),
+    Color.LightGray.copy(0.1f),
+    Color.LightGray.copy(0.5f)
+)

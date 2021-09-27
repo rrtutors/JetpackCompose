@@ -15,11 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.jetpack.datamodels.ExpandedListItem
 import com.example.jetpack.datamodels.User
 import com.example.jetpack.ui.theme.JetPackTheme
 import com.example.jetpack.viewmodels.UserViewModel
 
-data class ExpandedListItem(val data: User, val index: Int, var expanded: Boolean = false)
 
 @Composable
 fun ExpandableListDemo(userViewModel: UserViewModel) {

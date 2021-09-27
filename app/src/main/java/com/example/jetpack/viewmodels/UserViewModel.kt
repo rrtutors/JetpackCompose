@@ -3,8 +3,8 @@ package com.example.jetpack.viewmodels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.jetpack.datamodels.ExpandedListItem
 import com.example.jetpack.datamodels.User
-import com.example.jetpack.widget.ExpandedListItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

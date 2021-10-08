@@ -1,15 +1,11 @@
-package com.example.jetpack.widget
-
-import android.os.Bundle
-import android.view.WindowManager
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,38 +14,27 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.jetpack.datamodels.Customer
 import com.example.jetpack.ui.theme.JetPackTheme
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import kotlinx.coroutines.delay
 import kotlin.random.Random
 
-class MainActivity : ComponentActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-        setContent {
-            SwipeRefreshLayout()
-        }
-    }
-}
-
+data class Movie(val id: Int, val name: String, val genre: String, var year: Int)
 @Composable
 fun SwipeRefreshLayout() {
-    val customerList = listOf(
-        Customer(),
-        Customer(),
-        Customer(),
-        Customer(),
-        Customer(),
-        Customer(),
-        Customer(),
-        Customer(),
-        Customer(),
-        Customer(),
-        Customer()
+    val movieList = listOf(
+        Movie(id = 1, name = "GOLD", year = 2018, genre = "Sports"),
+        Movie(id = 2, name = "URI", year = 2019, genre = "Patriotic"),
+        Movie(id = 3, name = "DHOOM", year = 2004, genre = "Action"),
+        Movie(id = 4, name = "LOC", year = 2003, genre = "Action,War"),
+        Movie(id = 5, name = "BORDER", year = 1997, genre = "Action,War"),
+        Movie(id = 6, name = "ZNMG", year = 2011, genre = "Adventure"),
+        Movie(id = 7, name = "RUSTOM", year = 2016, genre = "Mystery"),
+        Movie(id = 8, name = "MIRROR", year = 2008, genre = "Horror"),
+        Movie(id = 9, name = "SHOLAY", year = 1975, genre = "Action,Drama,Comedy"),
+        Movie(id = 10, name = "LAGAAN", year = 2001, genre = "Adventure,Sports"),
+        Movie(id = 11, name = "TITANIC", year = 1997, genre = "Disaster")
     )
     var isRefreshing by remember { mutableStateOf(false) }
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing)
@@ -67,10 +52,9 @@ fun SwipeRefreshLayout() {
                 ) {
                     LazyColumn(content = {
                         items(
-                            items = customerList,
+                            items = movieList,
                             itemContent = {
-
-                                CustomerListItemView(it)
+                                MovieListItemView(it)
                             })
                     })
                 }
@@ -91,7 +75,7 @@ fun SwipeRefreshLayout() {
 }
 
 @Composable
-fun CustomerListItemView(it: Customer) {
+fun MovieListItemView(it: Movie) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -127,12 +111,12 @@ fun CustomerListItemView(it: Customer) {
                         overflow = TextOverflow.Ellipsis
                     )
                     Text(
-                        text = "${it.gender}",
+                        text = "${it.year}",
                         color = Color.White,
                         fontSize = 14.6.sp
                     )
                     Text(
-                        text = "${it.emailId}",
+                        text = it.genre,
                         color = Color.Gray,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
@@ -147,4 +131,3 @@ fun CustomerListItemView(it: Customer) {
 fun DefaultPreview() {
     SwipeRefreshLayout()
 }
-

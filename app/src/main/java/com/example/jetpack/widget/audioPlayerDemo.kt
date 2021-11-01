@@ -22,7 +22,21 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import java.text.SimpleDateFormat
 import java.util.*
+
+fun fetchFormattedDate(date: Date?, format: String): String {
+    try {
+        if (date != null) {
+            val formatter = SimpleDateFormat(format, Locale.getDefault())
+            return formatter.format(date)
+        }
+    } catch (e: Exception) {
+
+    }
+    return ""
+}
+
 
 @Composable
 fun AudioPlayerDemo() {

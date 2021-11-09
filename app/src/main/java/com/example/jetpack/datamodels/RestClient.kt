@@ -7,14 +7,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-class RestClient{
+class RestClient {
     private val service: Api
     fun getService(): Api {
         return service
     }
 
     init {
-        val baseUrl = "https://www.rrtutors.com/"
+        val baseUrl = "https://reqres.in/api/" // for pagination
+        //val baseUrl = "https://www.rrtutors.com/" // for rest api
         val client = OkHttpClient.Builder()
         client.connectTimeout(2, TimeUnit.MINUTES)
         client.readTimeout(2, TimeUnit.MINUTES)

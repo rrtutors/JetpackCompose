@@ -65,12 +65,6 @@ fun TopAppBarLayout(
     }, backgroundColor = Color.Blue, contentColor = Color.White)
 }
 
-private val screens = listOf(
-    DrawerScreens.Home,
-    DrawerScreens.Settings,
-    DrawerScreens.ContactUs
-)
-
 @Composable
 fun DrawerHeader() {
     Column(modifier = Modifier
@@ -117,56 +111,4 @@ fun Drawer(
             )
         }
     }
-}
-
-
-sealed class DrawerScreens(
-    val route: String,
-    val title: String,
-    val screenToLoad: @Composable () -> Unit
-) {
-    object Home : DrawerScreens("home", "Home", {
-        HomeScreen()
-    })
-
-    object Settings : DrawerScreens("settings", "Settings", {
-        SettingsScreen()
-    })
-
-    object ContactUs : DrawerScreens("contactUs", "Contact Us", {
-        ContactUsScreen()
-    })
-}
-
-@Composable
-fun HomeScreen() {
-    Column(
-        content = {
-            Text(text = "You are in Home Screen")
-        }, modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    )
-}
-
-@Composable
-fun ContactUsScreen() {
-    Column(
-        content = {
-            Text(text = "You are in Contact Us Screen")
-        }, modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    )
-}
-
-@Composable
-fun SettingsScreen() {
-    Column(
-        content = {
-            Text(text = "You are in Settings Screen")
-        }, modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    )
 }

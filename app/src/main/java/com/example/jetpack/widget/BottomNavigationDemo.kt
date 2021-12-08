@@ -304,7 +304,7 @@ fun ContactScreenForBottomNavigationBar() {
                 backgroundColor = Color.White,
                 contentColor = Color.Blue
             )
-        },
+        }
     )
 }
 
